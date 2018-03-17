@@ -21,3 +21,25 @@ $factory->define(App\User::class, function (Faker $faker) {
         'remember_token' => str_random(10),
     ];
 });
+
+$factory->define(App\Thread::class, function (Faker $faker) {
+    return [
+        'title' => $faker->sentence,
+        'body' => implode(' ', $faker->paragraphs),
+        'user_id' => function() { // esta função irá criar uma thread e chama a factory de criar usuário, e cria o usuário automaticamente
+        	return factory(App\User::class)->create()->id;
+        }
+    ];
+});
+
+$factory->define(App\Reply::class, function (Faker $faker) {
+    return [
+        'body' => $faker->paragraph,
+        'user_id' => function() { // esta função irá criar uma thread e chama a factory de criar usuário, e cria o usuário automaticamente pegando o id
+        	return factory(App\User::class)->create()->id;
+        },
+        'thread_id' => function() { // esta função irá criar uma replica e chama a factory de criar usuário, e cria o usuário automaticamente pegando o id da thread tbm
+        	return factory(App\Thread::class)->create()->id;
+        }
+    ];
+});
