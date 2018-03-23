@@ -1,9 +1,13 @@
 
-// Fonts
-@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
+// Materialize
+@import "~materialize-css/dist/css/materialize.css";
 
-// Variables
-@import "variables";
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
 
-// Bootstrap
-@import "~bootstrap-sass/assets/stylesheets/bootstrap";
+main {
+	flex: 1 0 auto;
+}
