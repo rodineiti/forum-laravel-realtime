@@ -7,7 +7,7 @@
 		<nav>
 			<div class="nav-wrapper green darken-2">
 				<div class="container">
-					<a href="" class="brand-logo">{{ __('My Heroes - Forum') }}</a>
+					<a href="/" class="brand-logo">{{ __('My Heroes - Forum') }}</a>
 
 					<ul class="right">
 						<li><a href="#!" data-activates="locale" class="dropdown-button">{{ __('Language') }}</a></li>

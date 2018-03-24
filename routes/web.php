@@ -24,3 +24,12 @@ Route::get('/locale/{locale}', function ($locale) {
 	session(['locale' => $locale]);
 	return back();
 });
+
+Route::middleware(['auth'])
+	->group(function() {
+		Route::resource('threads', 'ThreadsController');
+	});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
